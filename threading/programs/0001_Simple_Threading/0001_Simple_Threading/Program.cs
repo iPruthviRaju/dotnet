@@ -1,5 +1,5 @@
 ﻿///----------------------------------------------------------------------
-/// <File>GreenTea</File>
+/// <File>Program</File>
 /// <Author>Pruthvi</Author>
 /// <Date>July 24th, 2018</Date>
 /// <Summary></Summary>
