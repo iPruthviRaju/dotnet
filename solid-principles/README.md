@@ -18,7 +18,12 @@ Advantages:
 - Parallel Development
 - Loose coupling
 
+Open Closed Principle (OCP):
+- Software entities such as classes, modules, functions, etc. should be open for extension, but closed for modification.
+- Any new functionality should be implemented by added new classed, attributes and methods, instead of changing the current ones or existing ones.
+- The simplest way to apply OCP is to implement the new functionality on new derived classes.
+- Allow clients to access the original class with abstract interface.
 
-Interface Segregation Principle (ISP)
+Interface Segregation Principle (ISP):
 - No client should be forced to depend on methods it does not use.
 - One fat interface should be slited to many smaller and relevant interfaces so that clients can know about the interfaces that are relevant to them.
