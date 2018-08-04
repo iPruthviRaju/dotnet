@@ -11,9 +11,14 @@ namespace OCP
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public decimal Salary { get; set; }
         public Employee() { }
-        public Employee(int id, string name)
-        { this.ID = id; this.Name = name; }
-        public abstract decimal CalculateBonus(decimal salary);
+        public Employee(int id, string name, decimal salary)
+        { this.ID = id; this.Name = name; this.Salary = salary; }
+        public abstract decimal CalculateBonus();
+        public override string ToString()
+        {
+            return $"ID : {this.ID}, Name : {this.Name}, Salary : {this.Salary}";
+        }
     }
 }

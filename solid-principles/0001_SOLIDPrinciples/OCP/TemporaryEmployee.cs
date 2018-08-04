@@ -1,5 +1,5 @@
 ﻿///----------------------------------------------------------------------
-/// <File>PermanentEmployee</File>
+/// <File>TemporaryEmployee</File>
 /// <Author>Pruthvi</Author>
 /// <Date>August 4th, 2018</Date>
 /// <Summary></Summary>
@@ -7,12 +7,12 @@
 
 namespace OCP
 {
-    public class PermanentEmployee : Employee
+    public class TemporaryEmployee : Employee
     {
-        public PermanentEmployee(int id, string name, decimal salary) : base(id, name, salary) { }
+        public TemporaryEmployee(int id, string name, decimal salary) : base(id, name, salary) { }
         public override decimal CalculateBonus()
         {
-            return this.Salary * .1M;
+            return this.Salary * .05M;
         }
     }
 }
