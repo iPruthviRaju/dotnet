@@ -12,16 +12,13 @@ namespace OCP
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    public class Employee
+    public abstract class Employee
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public Employee() { }
         public Employee(int id, string name)
         { this.ID = id; this.Name = name; }
-        public decimal CalculateBonus(decimal salary)
-        {
-            return salary * .1M;
-        }
+        public abstract decimal CalculateBonus(decimal salary);
     }
 }
