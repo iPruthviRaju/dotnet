@@ -1,3 +1,4 @@
+
 SOLID principles
   These are the design principles that enable us manange most of the software design problems.
 
@@ -23,6 +24,13 @@ Open Closed Principle (OCP):
 - Any new functionality should be implemented by added new classed, attributes and methods, instead of changing the current ones or existing ones.
 - The simplest way to apply OCP is to implement the new functionality on new derived classes.
 - Allow clients to access the original class with abstract interface.
+
+Without OCP:
+- End up testing the entire functionality
+- QA team need to test the entire flow.
+- Costly process for the organization.
+- Breaks the Single Responsibility Principle as well.
+- Maintenance overheads increase on the classes.
 
 Interface Segregation Principle (ISP):
 - No client should be forced to depend on methods it does not use.
