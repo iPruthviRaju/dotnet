@@ -32,6 +32,12 @@ Without OCP:
 - Breaks the Single Responsibility Principle as well.
 - Maintenance overheads increase on the classes.
 
+Liskov Substitution Principle (LSP):
+- S is subtype of T, then objects of type T may be replaced with objects of type S
+- Derived types must be completely substitutable for their base types.
+- Liskov Substitution Principle (LSP) is a particular definition of a subtyping relation called (strong) behavioral subtyping.
+- Extension for the Open Closed Principle.
+
 Interface Segregation Principle (ISP):
 - No client should be forced to depend on methods it does not use.
 - One fat interface should be slited to many smaller and relevant interfaces so that clients can know about the interfaces that are relevant to them.
