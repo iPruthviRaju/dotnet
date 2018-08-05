@@ -22,6 +22,8 @@ Advantages:
 Open Closed Principle (OCP):
 - Software entities such as classes, modules, functions, etc. should be open for extension, but closed for modification.
 - Any new functionality should be implemented by added new classed, attributes and methods, instead of changing the current ones or existing ones.
+
+Implementation Guidelines:
 - The simplest way to apply OCP is to implement the new functionality on new derived classes.
 - Allow clients to access the original class with abstract interface.
 
@@ -37,6 +39,11 @@ Liskov Substitution Principle (LSP):
 - Derived types must be completely substitutable for their base types.
 - Liskov Substitution Principle (LSP) is a particular definition of a subtyping relation called (strong) behavioral subtyping.
 - Extension for the Open Closed Principle.
+
+Implementation Guidelines:
+- No new exceptions can be thrown by the subtype.
+- Clients should not know which specific subtype they are calling.
+- New derived classes just extend without replacing the functionality of old classes.
 
 Interface Segregation Principle (ISP):
 - No client should be forced to depend on methods it does not use.
