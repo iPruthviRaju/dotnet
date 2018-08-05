@@ -1,4 +1,3 @@
-
 SOLID principles
   These are the design principles that enable us manange most of the software design problems.
 
