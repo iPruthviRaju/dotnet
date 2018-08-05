@@ -1,3 +1,4 @@
+
 SOLID principles
   These are the design principles that enable us manange most of the software design problems.
 
@@ -47,3 +48,8 @@ Implementation Guidelines:
 Interface Segregation Principle (ISP):
 - No client should be forced to depend on methods it does not use.
 - One fat interface should be slited to many smaller and relevant interfaces so that clients can know about the interfaces that are relevant to them.
+
+Dependency Inversion Principle (DIP):
+- High-level modules should not depend on low-level modules. Both should depend on abstractions.
+- Abstractions should not depend on details. Details should depend on abstractions.
+- One trick you can use to determine how tightly coupled your code is is to look for the new keyword. Generally speaking, the more instances of new keyword you have, the more tightly coupled your code is.
