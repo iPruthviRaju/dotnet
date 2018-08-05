@@ -106,6 +106,6 @@ Here’s a simple example of how they will work with a sensible implementation o
 
 So long as you have a sensible Equals method that compares the values of the two objects you can follow these rules:
 
-If two objects are the same, they will be equal
-If two objects are equal, they may not be the same
-If two objects are not equal, they will not be the same
+-   If two objects are the same, they will be equal
+-   If two objects are equal, they may not be the same
+-   If two objects are not equal, they will not be the same
