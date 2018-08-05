@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Without_DIP", "Without_DIP\Without_DIP.csproj", "{400D710E-3C8A-46AF-A0E2-DA499090C612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{A9DA66A3-A9C8-43F1-A6D9-B6103BE2BFD1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{400D710E-3C8A-46AF-A0E2-DA499090C612}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400D710E-3C8A-46AF-A0E2-DA499090C612}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400D710E-3C8A-46AF-A0E2-DA499090C612}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9DA66A3-A9C8-43F1-A6D9-B6103BE2BFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9DA66A3-A9C8-43F1-A6D9-B6103BE2BFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9DA66A3-A9C8-43F1-A6D9-B6103BE2BFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9DA66A3-A9C8-43F1-A6D9-B6103BE2BFD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
