@@ -15,6 +15,7 @@ namespace OCP
         public Employee() { }
         public Employee(int id, string name, decimal salary)
         { this.ID = id; this.Name = name; this.Salary = salary; }
+        public abstract decimal GetMinimumSalary();
         public abstract decimal CalculateBonus();
         public override string ToString()
         {

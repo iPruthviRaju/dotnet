@@ -1,11 +1,11 @@
 ﻿///----------------------------------------------------------------------
 /// <File>PermanentEmployee</File>
 /// <Author>Pruthvi</Author>
-/// <Date>August 4th, 2018</Date>
+/// <Date>August 5th, 2018</Date>
 /// <Summary></Summary>
 ///-----------------------------------------------------------------------
 
-namespace OCP
+namespace LSP
 {
     public class PermanentEmployee : Employee
     {
@@ -13,6 +13,11 @@ namespace OCP
         public override decimal CalculateBonus()
         {
             return this.Salary * .1M;
+        }
+
+        public override decimal GetMinimumSalary()
+        {
+            return 15000;
         }
     }
 }
