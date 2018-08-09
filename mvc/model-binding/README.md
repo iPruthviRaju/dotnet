@@ -1,0 +1,54 @@
+Introduction to model binding
+
+Model binding in ASP.NET Core MVC maps data from HTTP requests to action method parameters. The parameters may be simple types such as strings, integers, or floats, or they may be complex types. This is a great feature of MVC because mapping incoming data to a counterpart is an often repeated scenario, regardless of size or complexity of the data. MVC solves this problem by abstracting binding away so developers don't have to keep rewriting a slightly different version of that same code in every app. Writing your own text to type converter code is tedious, and error prone.
+
+How model binding works
+
+When MVC receives an HTTP request, it routes it to a specific action method of a controller. It determines which action method to run based on what is in the route data, then it binds values from the HTTP request to that action method's parameters. For example, consider the following URL:
+
+http://contoso.com/movies/edit/2
+
+Since the route template looks like this, {controller=Home}/{action=Index}/{id?}, movies/edit/2 routes to the Movies controller, and its Edit action method. It also accepts an optional parameter called id. The code for the action method should look something like this:
+C# public IActionResult Edit(int? id)
+
+Note: The strings in the URL route are not case sensitive.
+
+MVC will try to bind request data to the action parameters by name. MVC will look for values for each parameter using the parameter name and the names of its public settable properties. In the above example, the only action parameter is named id, which MVC binds to the value with the same name in the route values. In addition to route values MVC will bind data from various parts of the request and it does so in a set order. Below is a list of the data sources in the order that model binding looks through them:
+
+    Form values: These are form values that go in the HTTP request using the POST method. (including jQuery POST requests).
+
+    Route values: The set of route values provided by Routing
+
+    Query strings: The query string part of the URI.
+
+Note: Form values, route data, and query strings are all stored as name-value pairs.
+
+Since model binding asked for a key named id and there's nothing named id in the form values, it moved on to the route values looking for that key. In our example, it's a match. Binding happens, and the value is converted to the integer 2. The same request using Edit(string id) would convert to the string "2".
+
+So far the example uses simple types. In MVC simple types are any .NET primitive type or type with a string type converter. If the action method's parameter were a class such as the Movie type, which contains both simple and complex types as properties, MVC's model binding will still handle it nicely. It uses reflection and recursion to traverse the properties of complex types looking for matches. Model binding looks for the pattern parameter_name.property_name to bind values to properties. If it doesn't find matching values of this form, it will attempt to bind using just the property name. For those types such as Collection types, model binding looks for matches to parameter_name[index] or just [index]. Model binding treats Dictionary types similarly, asking for parameter_name[key] or just [key], as long as the keys are simple types. Keys that are supported match the field names HTML and tag helpers generated for the same model type. This enables round-tripping values so that the form fields remain filled with the user's input for their convenience, for example, when bound data from a create or edit didn't pass validation.
+
+In order for binding to happen the class must have a public default constructor and member to be bound must be public writable properties. When model binding happens the class will only be instantiated using the public default constructor, then the properties can be set.
+
+When a parameter is bound, model binding stops looking for values with that name and it moves on to bind the next parameter. Otherwise, the default model binding behavior sets parameters to their default values depending on their type:
+
+    T[]: With the exception of arrays of type byte[], binding sets parameters of type T[] to Array.Empty<T>(). Arrays of type byte[] are set to null.
+
+    Reference Types: Binding creates an instance of a class with the default constructor without setting properties. However, model binding sets string parameters to null.
+
+    Nullable Types: Nullable types are set to null. In the above example, model binding sets id to null since it's of type int?.
+
+    Value Types: Non-nullable value types of type T are set to default(T). For example, model binding will set a parameter int id to 0. Consider using model validation or nullable types rather than relying on default values.
+
+If binding fails, MVC doesn't throw an error. Every action which accepts user input should check the ModelState.IsValid property.
+
+Note: Each entry in the controller's ModelState property is a ModelStateEntry containing an Errors property. It's rarely necessary to query this collection yourself. Use ModelState.IsValid instead.
+
+Additionally, there are some special data types that MVC must consider when performing model binding:
+
+    IFormFile, IEnumerable<IFormFile>: One or more uploaded files that are part of the HTTP request.
+
+    CancellationToken: Used to cancel activity in asynchronous controllers.
+
+These types can be bound to action parameters or to properties on a class type.
+
+Once model binding is complete, Validation occurs. Default model binding works great for the vast majority of development scenarios. It's also extensible so if you have unique needs you can customize the built-in behavior.
