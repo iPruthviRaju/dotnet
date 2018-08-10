@@ -28,6 +28,7 @@ It is derived from ViewDataDictionary class.
 It is available for the current request only.
 Requires typecasting for complex data type and checks for null values to avoid error.
 If redirection occurs, then its value becomes null.
+
 ViewBag
 
 ViewBag is also used to pass data from the controller to the respective view.
@@ -35,6 +36,7 @@ ViewBag is a dynamic property that takes advantage of the new dynamic features i
 It is also available for the current request only.
 If redirection occurs, then its value becomes null.
 Doesn’t require typecasting for complex data type.
+
 TempData
 
 TempData is derived from TempDataDictionary class
