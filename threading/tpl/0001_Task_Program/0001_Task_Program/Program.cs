@@ -20,6 +20,8 @@ namespace _0001_Task_Program
             Task task1 = new Task(() => Perform("Task1 without wait", 2000));
             task1.Start();
 
+            Task.Run(() => Perform("Run command in task", 2000));
+
             Task.Factory.StartNew(() => Perform("Task2 without wait", 2000));
 
             Console.WriteLine("[End] - Main end without Task.WaitAll for Task1 and Task2");
